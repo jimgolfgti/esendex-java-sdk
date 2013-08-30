@@ -65,7 +65,7 @@ public class XStreamParser implements XmlParser {
 
 		// General converters
 		xStream.registerConverter(new EmptyToNullDateConverter(
-				"yyyy-MM-dd'T'HH:mm:ss"));
+				"yyyy-MM-dd'T'HH:mm:ss'Z'", new String[]{"yyyy-MM-dd'T'HH:mm:ss.S'Z'"}));
 		xStream.registerConverter(new EsendexCasedEnumConverter());
 		
 		// Session

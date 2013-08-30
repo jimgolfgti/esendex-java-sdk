@@ -8,6 +8,7 @@ import esendex.sdk.java.service.InboxService;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class InboxServiceDeleteTests extends BaseTest {
@@ -22,8 +23,7 @@ public class InboxServiceDeleteTests extends BaseTest {
 
         InboxMessageCollectionResponse messages = inboxService.getMessages();
 
-        if ( messages.getTotalCount() != 0 )
-        {
+        if ( messages.getTotalCount() != 0 ) {
             messageIdToDelete = messages.getMessages().get(0).getId();
             assertTrue(inboxService.deleteMessage(messageIdToDelete));
         }
@@ -35,7 +35,7 @@ public class InboxServiceDeleteTests extends BaseTest {
     public void thenTheMessageIsNotInTheMessagesRetrievedAfterTheDelete() {
 
         for (InboxMessageResponse inboxMessageResponse : messagesAfterDelete.getMessages()) {
-            assertTrue(messageIdToDelete.equals(inboxMessageResponse.getId()));
+            assertFalse(messageIdToDelete.equals(inboxMessageResponse.getId()));
         }
     }
 

@@ -12,9 +12,10 @@ public class EmptyToNullDateConverter extends DateConverter {
 	/**
 	 * Instantiates a new empty to null date converter.
 	 * @param format the format
+     * @param acceptableFormats
 	 */
-	public EmptyToNullDateConverter(String format) {
-		super(format, new String[]{});
+	public EmptyToNullDateConverter(String format, String[] acceptableFormats) {
+		super(format, acceptableFormats);
 	}
 	
 	/**

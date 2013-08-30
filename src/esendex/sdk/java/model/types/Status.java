@@ -25,6 +25,7 @@ public enum Status {
 	FAILEDAUTHORISATION ("FailedAuthoristaion"),
 	ACKNOWLEDGED ("Acknowledged"),
 	CONNECTING ("Connecting"),
+    CANCELLED ("Cancelled"),
 	SCHEDULED ("Scheduled");
 	
 	private String representation;
