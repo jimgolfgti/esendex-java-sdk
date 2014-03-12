@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/esendex.java.sdk.iml" filepath="$PROJECT_DIR$/esendex.java.sdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esendex-java.iml" filepath="$PROJECT_DIR$/esendex-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esendex-sdk/esendex-sdk.iml" filepath="$PROJECT_DIR$/esendex-sdk/esendex-sdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esendex-sdk-samples/esendex-sdk-samples.iml" filepath="$PROJECT_DIR$/esendex-sdk-samples/esendex-sdk-samples.iml" />
     </modules>
   </component>
 </project>
