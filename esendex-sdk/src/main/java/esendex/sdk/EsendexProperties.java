@@ -18,7 +18,7 @@ public class EsendexProperties {
 		VERSION 	("esendex.version"),
 		NAMESPACE 	("esendex.namespace"),
 		DOMAIN 		("esendex.domain"),
-		PORT 		("esendex.port");
+		SCHEME 		("esendex.scheme");
 		
 		String value;
 		Key(String v) {
@@ -45,6 +45,12 @@ public class EsendexProperties {
 			throw new RuntimeException("Could not load '" + PROPERTY_FILE_NAME 
 					+ "' is it at the root of the classpath?");
 		}
+        for(String key : properties.stringPropertyNames()) {
+            String systemPropertyKey = key.replace(".", "_");
+            String value = System.getenv(systemPropertyKey);
+            if (value == null) continue;
+            properties.setProperty(key, value);
+        }
 	}
 	
 	/**

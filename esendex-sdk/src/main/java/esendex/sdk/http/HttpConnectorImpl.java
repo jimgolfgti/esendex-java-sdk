@@ -3,9 +3,13 @@ package esendex.sdk.http;
 
 import esendex.sdk.service.auth.Authenticator;
 
+import javax.net.ssl.*;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.X509Certificate;
 
 /**
  * Makes, writes to and reads from a URL connection with the
@@ -17,6 +21,38 @@ public class HttpConnectorImpl implements HttpConnector {
 
 	private static final String CONTENT_TYPE = "Content-Type";
 	private static final String XML_CONTENT_TYPE = "text/xml";
+
+    static {
+        // Create a trust manager that does not validate certificate chains
+        TrustManager[] trustAllCerts = new TrustManager[] {new X509TrustManager() {
+            public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+                return null;
+            }
+            public void checkClientTrusted(X509Certificate[] certs, String authType) {
+            }
+            public void checkServerTrusted(X509Certificate[] certs, String authType) {
+            }
+        }
+        };
+
+        // Install the all-trusting trust manager
+        SSLContext sc;
+        try {
+            sc = SSLContext.getInstance("SSL");
+            sc.init(null, trustAllCerts, new java.security.SecureRandom());
+            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+        } catch (NoSuchAlgorithmException ignored) {
+        } catch (KeyManagementException ignored) {
+        }
+
+        HostnameVerifier allHostsValid = new HostnameVerifier() {
+            public boolean verify(String hostname, SSLSession session) {
+                return true;
+            }
+        };
+
+        HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
+    }
 
 	/**
 	 * Connect.

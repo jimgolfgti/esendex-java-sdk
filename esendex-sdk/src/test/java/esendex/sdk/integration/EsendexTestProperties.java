@@ -8,10 +8,10 @@ import java.util.Properties;
 public class EsendexTestProperties {
 
     public enum Key {
-        USERNAME("tests.username"),
-        PASSWORD("tests.password"),
-        ACCOUNT("tests.account"),
-        DESTINATION_NUMBER("tests.destination_number");
+        USERNAME("esendex.username"),
+        PASSWORD("esendex.password"),
+        ACCOUNT("esendex.account"),
+        DESTINATION_NUMBER("esendex.destination_number");
 
         String value;
         Key(String v) {
@@ -32,6 +32,12 @@ public class EsendexTestProperties {
             properties.load(is);
         } catch (IOException e) {
             throw new RuntimeException("Could not load '" + PROPERTY_FILE_NAME + "' is it at the root of the classpath?");
+        }
+        for(String key : properties.stringPropertyNames()) {
+            String systemPropertyKey = key.replace(".", "_");
+            String value = System.getenv(systemPropertyKey);
+            if (value == null) continue;
+            properties.setProperty(key, value);
         }
     }
 

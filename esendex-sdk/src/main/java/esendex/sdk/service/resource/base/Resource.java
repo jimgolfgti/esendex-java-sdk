@@ -54,7 +54,7 @@ public abstract class Resource {
 	private static String createParentEndpoint() {
 		EsendexProperties props = EsendexProperties.instance();
 		StringBuilder builder = new StringBuilder();
-		builder.append("http://");
+		builder.append(props.getProperty(EsendexProperties.Key.SCHEME) + "://");
 		builder.append(props.getProperty(EsendexProperties.Key.DOMAIN));
 		builder.append("/");
 		builder.append(props.getProperty(EsendexProperties.Key.VERSION));
