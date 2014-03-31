@@ -46,8 +46,7 @@ public class EsendexProperties {
 					+ "' is it at the root of the classpath?");
 		}
         for(String key : properties.stringPropertyNames()) {
-            String systemPropertyKey = key.replace(".", "_");
-            String value = System.getenv(systemPropertyKey);
+            String value = System.getProperty(key);
             if (value == null) continue;
             properties.setProperty(key, value);
         }
