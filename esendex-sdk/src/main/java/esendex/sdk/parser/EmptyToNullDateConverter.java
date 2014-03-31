@@ -1,20 +1,19 @@
 
 package esendex.sdk.parser;
 
-import com.thoughtworks.xstream.converters.basic.DateConverter;
+import com.thoughtworks.xstream.converters.extended.ISO8601DateConverter;
 
 /**
  * Date converter that converts empty elements to null.
  * @author Mike Whittaker
  */
-public class EmptyToNullDateConverter extends DateConverter {
+public class EmptyToNullDateConverter extends ISO8601DateConverter {
 	
 	/**
 	 * Instantiates a new empty to null date converter.
-	 * @param format the format
 	 */
-	public EmptyToNullDateConverter(String format) {
-		super(format, new String[]{});
+	public EmptyToNullDateConverter() {
+		super();
 	}
 	
 	/**

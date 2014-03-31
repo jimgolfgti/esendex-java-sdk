@@ -12,6 +12,10 @@
     <artifactId>esendex-sdk-samples</artifactId>
     <name>Esendex SDK Samples</name>
     <url>https://github.com/esendex/esendex-java-sdk</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>esendex.sdk</groupId>

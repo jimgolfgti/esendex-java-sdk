@@ -12,6 +12,10 @@
     <artifactId>esendex-sdk</artifactId>
     <name>Esendex SDK</name>
     <url>https://github.com/esendex/esendex-java-sdk</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.apache.directory.studio</groupId>
@@ -23,6 +27,12 @@
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
             <version>1.4.4</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.3</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

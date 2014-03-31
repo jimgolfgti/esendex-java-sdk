@@ -65,8 +65,7 @@ public class XStreamParser implements XmlParser {
 		xStream.useAttributeFor(PageableDto.class, "startindex");
 
 		// General converters
-		xStream.registerConverter(new EmptyToNullDateConverter(
-				"yyyy-MM-dd'T'HH:mm:ss"));
+		xStream.registerConverter(new EmptyToNullDateConverter());
 		xStream.registerConverter(new EsendexCasedEnumConverter());
 		
 		// Session
