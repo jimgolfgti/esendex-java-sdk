@@ -14,4 +14,18 @@
     </modules>
     <name>Esendex Java</name>
     <url>https://github.com/esendex/esendex-java-sdk</url>
+
+    <prerequisites>
+        <maven>2.2.1</maven>
+    </prerequisites>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.1</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
